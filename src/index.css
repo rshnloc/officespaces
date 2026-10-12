@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+/* ============================================
+   GRAMWORK SPACES — Design System
+   ============================================ */
+
+@theme {
+  /* Colors */
+  --color-navy: #1B2A4A;
+  --color-navy-light: #2A3D5F;
+  --color-navy-dark: #0F1B33;
+  --color-gold: #C8962E;
+  --color-gold-light: #D4A843;
+  --color-gold-dark: #B07E1E;
+  --color-gold-50: #FDF5E6;
+  --color-cream: #FBF7F0;
+  --color-gray-50: #F8F9FA;
+  --color-gray-100: #F1F3F5;
+  --color-gray-200: #E9ECEF;
+  --color-gray-300: #DEE2E6;
+  --color-gray-400: #ADB5BD;
+  --color-gray-500: #6C757D;
+  --color-gray-600: #495057;
+  --color-gray-700: #343A40;
+  --color-gray-800: #212529;
+  --color-success: #28A745;
+  --color-error: #DC3545;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.12);
+  --shadow-navbar: 0 2px 20px rgba(0, 0, 0, 0.08);
+  --shadow-modal: 0 25px 60px rgba(0, 0, 0, 0.3);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-gray-800);
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-navy);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+/* Section spacing */
+.section-padding {
+  @apply px-4 py-16 md:px-8 md:py-24 lg:px-16;
+}
+
+.container-custom {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* Gold underline accent */
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-gold);
+  border-radius: 2px;
+}
+
+/* Section Label Badge */
+.section-label {
+  @apply inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider;
+  background: var(--color-gold-50);
+  color: var(--color-gold-dark);
+  border: 1px solid rgba(200, 150, 46, 0.2);
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300;
+  background: var(--color-gold);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--color-gold-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(200, 150, 46, 0.4);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 rounded-lg border-2 px-6 py-3 text-sm font-semibold transition-all duration-300;
+  border-color: var(--color-navy);
+  color: var(--color-navy);
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: var(--color-navy);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Card Styles */
+.card {
+  @apply rounded-xl bg-white p-6 transition-all duration-300;
+  box-shadow: var(--shadow-card);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* Form input styles */
+.form-input {
+  @apply w-full rounded-lg border bg-white px-4 py-3 text-sm transition-all duration-200 outline-none;
+  border-color: var(--color-gray-300);
+}
+
+.form-input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(200, 150, 46, 0.1);
+}
+
+.form-input.error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.form-label {
+  @apply mb-1.5 block text-sm font-medium;
+  color: var(--color-gray-700);
+}
+
+.form-error {
+  @apply mt-1 text-xs font-medium;
+  color: var(--color-error);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
